@@ -6,7 +6,7 @@ class Header extends Component {
   render() {
     return(
       <div className={styles.header}>
-        <h2 className={styles.headerText}>Stay healthy!</h2>
+        <h2 className={styles['header-text']}>Stay healthy!</h2>
       </div>
     )
   }
