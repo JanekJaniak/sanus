@@ -9,6 +9,7 @@ class MainContent extends Component {
     return(
       <div className={styles.container}>
         <Button />
+        <Button />
       </div>
     )
   }

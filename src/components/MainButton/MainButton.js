@@ -1,10 +1,11 @@
 import React from 'react'
 
+import styles from './mainButtonStyles.module.css'
+
 function Button() {
   return(
-    <button>Add</button>
+    <button className={styles.button}>Add</button>
   )
 }
 
 export default Button
-
