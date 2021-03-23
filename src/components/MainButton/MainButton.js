@@ -11,8 +11,7 @@ function Button(props) {
     <button 
       className={styles.button}
       onClick={() => buttonHandler(props.type)}
-    >{props.text}
-    </button>
+    >{props.text}</button>
   )
 }
 
