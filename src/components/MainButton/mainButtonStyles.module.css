@@ -1,5 +1,6 @@
 .button {
-  height: 150px;
-  width: 150px;
-  margin: 15px
+  height: 80px;
+  width: 80px;
+  margin: 5px;
+  font-size: medium;
 }

@@ -1,0 +1,6 @@
+.container {
+  height: 12vh;
+  background-color: rgb(0, 10, 99);
+  display: flex;
+  justify-content: space-evenly;
+}
