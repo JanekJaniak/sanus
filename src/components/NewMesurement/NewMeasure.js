@@ -12,7 +12,8 @@ class NewMeasure extends Component {
       heartRate: '',
       weight: '',
       position: '',
-      arm: ''
+      arm: '',
+      mood: ''
     }
   }
 
@@ -88,6 +89,17 @@ class NewMeasure extends Component {
                 <option value='right'>Prawa</option>
             </select>
           </div>
+          <div className={styles['form-input']}>
+            <label>Samopoczucie: </label>
+            <input 
+              value={this.state.mood}
+              onChange={this.handleInput}
+              inputtype='mood'
+              type='range'
+              min='0'
+              max='5'
+            ></input>
+          </div> 
           <div className={styles['form-input']}>
             <label>Notatki: </label>
             <textarea 
