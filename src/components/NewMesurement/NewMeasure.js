@@ -10,7 +10,9 @@ class NewMeasure extends Component {
       systolic: '',
       diastolic: '',
       heartRate: '',
-      weight: ''
+      weight: '',
+      position: '',
+      arm: ''
     }
   }
 
@@ -63,6 +65,28 @@ class NewMeasure extends Component {
               onChange={this.handleInput}
               inputtype='weight'
             />
+          </div>
+          <div className={styles['form-input']}>
+            <label>Pozycja: </label>
+            <select
+              value={this.state.position}
+              onChange={this.handleInput}
+              inputtype='position'
+            >
+                <option value='sitting'>Siedząca</option>
+                <option value='lying'>Leżąca</option>
+            </select>
+          </div>
+          <div className={styles['form-input']}>
+            <label>Ręka: </label>
+            <select
+              value={this.state.arm}
+              onChange={this.handleInput}
+              inputtype='arm'
+            >
+                <option value='left'>Lewa</option>
+                <option value='right'>Prawa</option>
+            </select>
           </div>
           <div className={styles['form-input']}>
             <label>Notatki: </label>
