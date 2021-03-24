@@ -13,7 +13,17 @@ class NewMeasure extends Component {
       weight: '',
       position: '',
       arm: '',
-      mood: ''
+      mood: '',
+      sport: {
+        done: false,
+        type: '',
+        time: ''
+      },
+      alcohol: {
+        done: false,
+        type: '',
+        quantity: ''
+      }
     }
   }
 
@@ -88,6 +98,16 @@ class NewMeasure extends Component {
                 <option value='left'>Lewa</option>
                 <option value='right'>Prawa</option>
             </select>
+          </div>
+          <div className={styles['form-input']}>
+            <label>Sport: </label>
+            <input
+              value={this.state.sport.done}
+              onChange={this.handleInput}
+              inputtype='sport.done'
+              type='checkbox'
+            >
+            </input>
           </div>
           <div className={styles['form-input']}>
             <label>Samopoczucie: </label>
