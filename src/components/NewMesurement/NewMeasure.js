@@ -6,7 +6,7 @@ class NewMeasure extends Component {
   constructor() {
     super()
 
-    this.state ={
+    this.state = {
       systolic: '',
       diastolic: '',
       heartRate: '',
@@ -14,16 +14,12 @@ class NewMeasure extends Component {
       position: '',
       arm: '',
       mood: '',
-      sport: {
-        done: false,
-        type: '',
-        time: ''
-      },
-      alcohol: {
-        done: false,
-        type: '',
-        quantity: ''
-      }
+      activity: [
+        {id: '', type: '', duration: ''}
+      ],
+      alcohol: [
+        {id: '', type: '', quantity: ''}
+      ]
     }
   }
 
@@ -31,6 +27,12 @@ class NewMeasure extends Component {
     this.setState({
       [event.target.getAttribute('inputtype')]: event.target.value
     })
+  }
+
+  handleButton = (event) => {
+    console.log(event.target.getAttribute('buttontype'));
+    console.log('ADD');
+    event.preventDefault();
   }
 
   render() {
@@ -100,14 +102,16 @@ class NewMeasure extends Component {
             </select>
           </div>
           <div className={styles['form-input']}>
-            <label>Sport: </label>
-            <input
-              value={this.state.sport.done}
-              onChange={this.handleInput}
-              inputtype='sport.done'
-              type='checkbox'
-            >
-            </input>
+            <button
+            onClick={this.handleButton}
+            buttontype='activity'
+            >Add activity</button>
+          </div>
+          <div className={styles['form-input']}>
+            <button
+            onClick={this.handleButton}
+            buttontype='alcohol'
+            >Add alcohol</button>
           </div>
           <div className={styles['form-input']}>
             <label>Samopoczucie: </label>
@@ -133,5 +137,4 @@ class NewMeasure extends Component {
     )
   }
 }
-
 export default NewMeasure
