@@ -7,6 +7,8 @@ class NewMeasure extends Component {
     super()
 
     this.state = {
+      date:'',
+      time:'',
       systolic: '',
       diastolic: '',
       heartRate: '',
@@ -14,12 +16,6 @@ class NewMeasure extends Component {
       position: '',
       arm: '',
       mood: '',
-      activity: [
-        {id: '', type: '', duration: ''}
-      ],
-      alcohol: [
-        {id: '', type: '', quantity: ''}
-      ]
     }
   }
 
@@ -41,7 +37,21 @@ class NewMeasure extends Component {
         <form className={styles.form}>
           <div className={styles['form-input']}>
             <label>Data: </label>
-            <input type='datetime-local' />
+            <input 
+              type='date'
+              value={this.state.date}
+              onChange={this.handleInput}
+              inputtype='date'
+            />
+          </div>
+          <div className={styles['form-input']}>
+            <label>Time: </label>
+            <input
+              type='time'
+              value={this.state.time}
+              onChange={this.handleInput}
+              inputtype='time'
+            />
           </div>
           <div className={styles['form-input']}>
             <label>Skurczowe: </label>
@@ -100,18 +110,6 @@ class NewMeasure extends Component {
                 <option value='left'>Lewa</option>
                 <option value='right'>Prawa</option>
             </select>
-          </div>
-          <div className={styles['form-input']}>
-            <button
-            onClick={this.handleButton}
-            buttontype='activity'
-            >Add activity</button>
-          </div>
-          <div className={styles['form-input']}>
-            <button
-            onClick={this.handleButton}
-            buttontype='alcohol'
-            >Add alcohol</button>
           </div>
           <div className={styles['form-input']}>
             <label>Samopoczucie: </label>
