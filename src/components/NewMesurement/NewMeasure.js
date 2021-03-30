@@ -26,8 +26,7 @@ class NewMeasure extends Component {
   }
 
   handleButton = (event) => {
-    console.log(event.target.getAttribute('buttontype'));
-    console.log('ADD');
+    console.log('Submit');
     event.preventDefault();
   }
 
@@ -128,9 +127,15 @@ class NewMeasure extends Component {
               value={this.state.notes}
               onChange={this.handleInput}
               inputtype='notes'
-          ></textarea>
-        </div>
+            ></textarea>
+          </div>
         </form>
+        <div className={styles['button-container']}>
+          <button 
+            onClick={this.handleButton}
+            className={styles['button-submit']}
+          >Zapisz</button>
+        </div>
       </div>
     )
   }

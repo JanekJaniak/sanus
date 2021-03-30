@@ -1,5 +1,5 @@
 .container {
-  height: 100%;
+  height: 80%;
   background-color: cornflowerblue;
 }
 
@@ -15,4 +15,14 @@
   margin-top: 15px;
   display: flex;
   align-items: center;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.button-submit {
+  font-size: medium;
+  height: 50px;
+  width: 100px;
 }
