@@ -7,15 +7,16 @@ class NewMeasure extends Component {
     super()
 
     this.state = {
-      date:'',
-      time:'',
+      id: Date.now(),
+      date: '',
+      time: '',
       systolic: '',
       diastolic: '',
       heartRate: '',
       weight: '',
       position: '',
       arm: '',
-      mood: '',
+      mood: 3,
     }
   }
 
