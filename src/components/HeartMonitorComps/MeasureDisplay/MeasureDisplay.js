@@ -5,18 +5,20 @@ import Aux from '../../../hoc/Aux';
 import styles from './mdStyles.module.css'
 
 const measureDisplay = (props) => {
+  const heartData = {...props.measureData}
+
   return (
     <Aux>
       <div className={styles.dateContainer}>
-        <p>01.04.21</p>
+        <p>{heartData.date}</p>
       </div>
       <table className={styles.table}>
         <tbody>
           <tr>
-            <th className={styles.inner}>120</th>
-            <th className={styles.inner}>80</th>
-            <th className={styles.inner}>70</th>
-            <th>7:00</th>
+            <th className={styles.inner}>{heartData.systolic}</th>
+            <th className={styles.inner}>{heartData.diastolic}</th>
+            <th className={styles.inner}>{heartData.heartRate}</th>
+            <th>{heartData.time}</th>
           </tr>
         </tbody>
       </table>

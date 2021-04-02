@@ -51,7 +51,7 @@ class HeartMonitor extends Component {
             </tr>
           </tbody>
         </table>
-        <MeasureDisplay />
+        <MeasureDisplay measureData={this.state.heartData[0]}/>
         <div>Measurement controls</div>
       </Aux>
     )
