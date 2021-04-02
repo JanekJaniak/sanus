@@ -1,9 +1,0 @@
-.container {
-  height: 90vh;
-  width: 100%;
-  background-color: cornflowerblue;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-

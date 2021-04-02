@@ -2,15 +2,16 @@ import React, {Component} from 'react'
 
 import './App.css';
 
-import Header from './components/Header/Header.js'
-import HeartComponent from './components/HeartComponent/HeartComponent.js'
+import Layout from './components/Layout/Layout'
+import HeartMonitor from './containers/HeartMonitor';
 
 class App extends Component {
   render() {
     return(
-      <div className="App">
-        <Header />
-        <HeartComponent />
+      <div>
+        <Layout>
+          <HeartMonitor />
+        </Layout>
       </div>
     );
   }
