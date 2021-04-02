@@ -141,4 +141,5 @@ class NewMeasure extends Component {
     )
   }
 }
+
 export default NewMeasure

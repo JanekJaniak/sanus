@@ -1,10 +1,18 @@
 import React, {Component} from 'react'
 
-import styles from './mainContentStyles.module.css'
+import styles from './heartComponentStyles.module.css'
 
 import Footer from '../Footer/Footer.js'
 import NewMeasure from '../NewMesurement/NewMeasure.js'
-class MainContent extends Component {
+
+class HeartComponent extends Component {
+  constructor() {
+    super()
+
+    this.state ={
+      measurements: []
+    }
+  }
   render() {
     return(
       <div className={styles.container}>
@@ -17,4 +25,4 @@ class MainContent extends Component {
   }
 }
 
-export default MainContent
+export default HeartComponent
