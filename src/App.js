@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import './App.css';
 
 import Layout from './components/Layout/Layout'
-import HeartMonitor from './containers/HeartMonitor';
+import HeartMonitor from './containers/HeartMonitor/HeartMonitor';
 
 class App extends Component {
   render() {
