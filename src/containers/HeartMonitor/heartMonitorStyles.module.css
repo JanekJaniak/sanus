@@ -2,6 +2,21 @@
   color: blue;
 }
 
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.measurementList {
+  background-color: cadetblue;
+}
+
+.footer {
+  background-color: coral;
+}
+
 .table {
   width: 100%;
   color: #fa991b;

@@ -52,20 +52,22 @@ class HeartMonitor extends Component {
   }
   render () {
     return (
-      <Aux>
-        <table className={styles.table}>
-          <tbody>
-            <tr>
-              <th className={styles.inner}>SYS</th>
-              <th className={styles.inner}>DIA</th>
-              <th className={styles.inner}>HR</th>
-              <th>TIME</th>
-            </tr>
-          </tbody>
-        </table>
-        <div>{this.MeasurementList()}</div>
-        <div>Measurement controls</div>
-      </Aux>
+      <div className={styles.container}>
+        <div className={styles.measurementList}>
+          <table className={styles.table}>
+            <tbody>
+              <tr>
+                <th className={styles.inner}>SYS</th>
+                <th className={styles.inner}>DIA</th>
+                <th className={styles.inner}>HR</th>
+                <th>TIME</th>
+              </tr>
+            </tbody>
+          </table>
+          <div>{this.MeasurementList()}</div>
+        </div>
+        <div className={styles.footer}>Measurement controls</div>
+      </div>
     )
   }
 };
