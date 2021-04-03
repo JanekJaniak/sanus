@@ -38,6 +38,18 @@ class HeartMonitor extends Component {
       ],
     }
   }
+
+  MeasurementList = () => {
+    const heartDataArr = this.state.heartData;
+    
+    return(
+      <Aux>
+        {heartDataArr.map(heartDataItm => (
+          <MeasureDisplay key={heartDataItm.id} heartDataItm={heartDataItm}/>
+        ))}
+      </Aux>
+    )
+  }
   render () {
     return (
       <Aux>
@@ -51,7 +63,7 @@ class HeartMonitor extends Component {
             </tr>
           </tbody>
         </table>
-        <MeasureDisplay measureData={this.state.heartData[0]}/>
+        <div>{this.MeasurementList()}</div>
         <div>Measurement controls</div>
       </Aux>
     )

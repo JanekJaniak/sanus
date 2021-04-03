@@ -5,7 +5,7 @@ import Aux from '../../../hoc/Aux';
 import styles from './mdStyles.module.css'
 
 const measureDisplay = (props) => {
-  const heartData = {...props.measureData}
+  const heartData = {...props.heartDataItm}
 
   return (
     <Aux>
