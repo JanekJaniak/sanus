@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import Aux from '../../hoc/Aux'; 
 import MeasureDisplay from '../../components/HeartMonitorComps/MeasureDisplay/MeasureDisplay'
+import Footer from '../../components/HeartMonitorComps/Footer/Footer'
 
 import styles from './heartMonitorStyles.module.css'
 
@@ -66,7 +67,7 @@ class HeartMonitor extends Component {
           </table>
           <div>{this.MeasurementList()}</div>
         </div>
-        <div className={styles.footer}>Measurement controls</div>
+        <Footer />
       </div>
     )
   }
