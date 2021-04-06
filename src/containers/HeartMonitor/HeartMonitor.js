@@ -55,7 +55,7 @@ class HeartMonitor extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.measurementList}>
-          <table className={styles.table}>
+          <table className={styles.tableHead}>
             <tbody>
               <tr>
                 <th className={styles.inner}>SYS</th>

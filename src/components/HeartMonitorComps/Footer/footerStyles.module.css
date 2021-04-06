@@ -1,6 +1,7 @@
 .footer {
-  background-color: cornflowerblue;
+  height: 10%;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }

@@ -1,25 +1,23 @@
-.header {
-  color: blue;
-}
-
 .container {
-  height: 100%;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  background-image: linear-gradient(rgb(95, 159, 243),rgb(5, 48, 128));
 }
 
 .measurementList {
-  background-color: cadetblue;
+  height: 90%;
 }
 
 .footer {
-  background-color: coral;
+  height: 10%;
 }
 
-.table {
+.tableHead {
   width: 100%;
   color: #fa991b;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 
