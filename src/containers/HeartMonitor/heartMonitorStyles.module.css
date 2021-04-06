@@ -16,7 +16,8 @@
 
 .tableHead {
   width: 100%;
-  color: #fa991b;
+  color: white;
+  background-color: rgb(255,255,255,.3);
   margin-top: 10px;
   margin-bottom: 30px;
 }

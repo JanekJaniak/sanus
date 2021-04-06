@@ -10,7 +10,7 @@ const measureDisplay = (props) => {
   return (
     <Aux>
       <div className={styles.dateContainer}>
-        <p>{heartData.date}</p>
+        <p className={styles.date}>{heartData.date}</p>
       </div>
       <table className={styles.table}>
         <tbody>
