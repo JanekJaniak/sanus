@@ -2,4 +2,5 @@
   height: 50px;
   width: 50px;
   margin: 10px;
+  box-shadow: 0 3px 3px darkblue;
 }
