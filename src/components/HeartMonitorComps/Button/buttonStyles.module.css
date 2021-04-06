@@ -1,5 +1,10 @@
 .button {
   height: 50px;
-  width: 50px;
-  box-shadow: 0 3px 3px darkblue;
+  width: 70px;
+  background-image: linear-gradient(to top right, rgb(2, 22, 85),rgb(0, 78, 223));
+  color: rgb(245, 209, 7);
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(245, 209, 7);
+  font-size: 0.9rem;
 }
