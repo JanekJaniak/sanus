@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import Aux from '../../hoc/Aux'; 
 import MeasureDisplay from '../../components/HeartMonitorComps/MeasureDisplay/MeasureDisplay'
 import Footer from '../../components/HeartMonitorComps/Footer/Footer'
+import Modal from '../../components/UI/Modal/Modal'
+import Input from '../../components/UI/Input/Input'
 
 import styles from './heartMonitorStyles.module.css'
 
@@ -54,6 +56,9 @@ class HeartMonitor extends Component {
   render () {
     return (
       <div className={styles.container}>
+        <Modal>
+          <Input />
+        </Modal>
         <div className={styles.measurementList}>
           <table className={styles.tableHead}>
             <tbody>
