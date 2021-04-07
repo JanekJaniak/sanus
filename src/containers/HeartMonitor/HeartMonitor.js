@@ -57,7 +57,8 @@ class HeartMonitor extends Component {
     return (
       <div className={styles.container}>
         <Modal>
-          <Input />
+          <Input label='hr' inputtype='input' type ='number'/>
+          <Input label='notes' inputtype='textarea'/>
         </Modal>
         <div className={styles.measurementList}>
           <table className={styles.tableHead}>
