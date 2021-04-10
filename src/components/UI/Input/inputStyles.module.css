@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.input {
+  box-sizing: border-box;
+  width: 170px;
+  font-size: 1rem;
+  padding: 4px;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  border-color: rgb(2, 22, 85);
+  background-color: rgb(239, 243, 255);
+}
+
+.input:focus {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(245, 209, 7);
+}
+.textArea {
+  box-sizing: border-box;
+  width: 170px;
+  font-size: 1rem;
+  padding: 4px;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  border-color: rgb(2, 22, 85);
+  background-color: rgb(239, 243, 255);
+}
+
+.label {
+  font-weight: bolder;
+}

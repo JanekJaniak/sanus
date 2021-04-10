@@ -1,24 +1,24 @@
 import React from 'react'
 
-import styles from './inputStyles.css'
+import styles from './inputStyles.module.css'
 
 const input = (props) => {
   let inputElement = null;
 
   switch(props.inputtype) {
     case 'input':
-      inputElement = <input {...props}/>;
+      inputElement = <input className={styles.input} {...props}/>;
       break;
     case 'textarea':
-      inputElement = <textarea {...props}/>;
+      inputElement = <textarea className={styles.textArea}{...props}/>;
       break;
     default:
-      inputElement = <input {...props}/>;
+      inputElement = <input className={styles.input}{...props}/>;
   }
  
   return (
-    <div>
-      <label>{props.label}</label>
+    <div className={styles.container}>
+      <label className={styles.label}>{props.label}</label>
       {inputElement}
       
     </div>
