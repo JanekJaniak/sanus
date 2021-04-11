@@ -2,7 +2,8 @@
   position: fixed;
   z-index: 500;
   background-color: white;
-  width: 85%;
+  width: 86%;
+  margin-left: 7%;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
   padding: 16px;
