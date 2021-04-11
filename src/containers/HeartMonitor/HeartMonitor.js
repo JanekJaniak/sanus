@@ -5,6 +5,7 @@ import MeasureDisplay from '../../components/HeartMonitorComps/MeasureDisplay/Me
 import Footer from '../../components/HeartMonitorComps/Footer/Footer'
 import Modal from '../../components/UI/Modal/Modal'
 import Input from '../../components/UI/Input/Input'
+import Button from '../../components/HeartMonitorComps/Button/Button'
 
 import styles from './heartMonitorStyles.module.css'
 
@@ -62,6 +63,10 @@ class HeartMonitor extends Component {
           <Input label='hr' inputtype='input' type ='number'/>
           <Input label='SKU' inputtype='input' type ='number'/>
           <Input label='notes' inputtype='textarea'/>
+          <Button
+            name='Add'
+            type='submit'
+          />
         </Modal>
         <div className={styles.measurementList}>
           <table className={styles.tableHead}>
