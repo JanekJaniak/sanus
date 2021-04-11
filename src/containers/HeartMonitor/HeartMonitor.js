@@ -4,8 +4,7 @@ import Aux from '../../hoc/Aux';
 import MeasureDisplay from '../../components/HeartMonitorComps/MeasureDisplay/MeasureDisplay'
 import Footer from '../../components/HeartMonitorComps/Footer/Footer'
 import Modal from '../../components/UI/Modal/Modal'
-import Input from '../../components/UI/Input/Input'
-import Button from '../../components/HeartMonitorComps/Button/Button'
+import AddNewMeasure from '../../components/HeartMonitorComps/AddNewMeasure/AddNewMeasure'
 
 import styles from './heartMonitorStyles.module.css'
 
@@ -22,10 +21,6 @@ class HeartMonitor extends Component {
           systolic: '130',
           diastolic: '80',
           heartRate: '70',
-          weight: '',
-          position: '',
-          arm: '',
-          mood: 3,
         },
         {
           id: 2,
@@ -34,10 +29,6 @@ class HeartMonitor extends Component {
           systolic: '111',
           diastolic: '77',
           heartRate: '65',
-          weight: '',
-          position: '',
-          arm: '',
-          mood: 3,
         },
       ],
     }
@@ -58,15 +49,7 @@ class HeartMonitor extends Component {
     return (
       <div className={styles.container}>
         <Modal>
-          <Input label='DATE' inputtype='input' type ='date'/>  
-          <Input label='time' inputtype='input' type ='time'/>
-          <Input label='hr' inputtype='input' type ='number'/>
-          <Input label='SKU' inputtype='input' type ='number'/>
-          <Input label='notes' inputtype='textarea'/>
-          <Button
-            name='Add'
-            type='submit'
-          />
+          <AddNewMeasure />
         </Modal>
         <div className={styles.measurementList}>
           <table className={styles.tableHead}>
