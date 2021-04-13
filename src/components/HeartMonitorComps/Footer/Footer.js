@@ -10,7 +10,7 @@ const buttons = [
   {name: 'Avg', type: 'avg'}
 ];
 
-const Footer = () => {
+const Footer = (props) => {
   return(
     <div className={styles.footer}>
       {buttons.map(button => (
@@ -18,6 +18,7 @@ const Footer = () => {
           name={button.name} 
           type={button.type}
           key={button.type}
+          handler={props.handler}
         />))}
     </div>
   )

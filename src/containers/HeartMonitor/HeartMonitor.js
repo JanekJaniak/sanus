@@ -31,10 +31,11 @@ class HeartMonitor extends Component {
           heartRate: '65',
         },
       ],
+      addNewMeasure: false,
     }
   }
 
-  MeasurementList = () => {
+  measurementList = () => {
     const heartDataArr = this.state.heartData;
     
     return(
@@ -45,10 +46,15 @@ class HeartMonitor extends Component {
       </Aux>
     )
   }
+
+  buttonHandler(event)  {
+    console.log(event.target);
+  }
+
   render () {
     return (
       <div className={styles.container}>
-        <Modal>
+        <Modal show={this.state.addNewMeasure}>
           <AddNewMeasure />
         </Modal>
         <div className={styles.measurementList}>
@@ -62,9 +68,9 @@ class HeartMonitor extends Component {
               </tr>
             </tbody>
           </table>
-          <div>{this.MeasurementList()}</div>
+          <div>{this.measurementList()}</div>
         </div>
-        <Footer />
+        <Footer handler={this.buttonHandler} />
       </div>
     )
   }
