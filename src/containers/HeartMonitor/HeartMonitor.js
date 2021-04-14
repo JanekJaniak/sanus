@@ -7,6 +7,7 @@ import Modal from '../../components/UI/Modal/Modal'
 import AddNewMeasure from '../../components/HeartMonitorComps/AddNewMeasure/AddNewMeasure'
 
 import styles from './heartMonitorStyles.module.css'
+import addNewMeasure from '../../components/HeartMonitorComps/AddNewMeasure/AddNewMeasure';
 
 class HeartMonitor extends Component {
   constructor() {
@@ -31,7 +32,7 @@ class HeartMonitor extends Component {
           heartRate: '65',
         },
       ],
-      addNewMeasure: false,
+      isNewMeasureOpen: false,
     }
   }
 
@@ -47,15 +48,34 @@ class HeartMonitor extends Component {
     )
   }
 
-  buttonHandler(event)  {
-    console.log(event.target);
+  buttonHandler = (event) => {
+    const buttonType = event.target.getAttribute('action')
+    console.log(buttonType);
+    
+    switch(buttonType) {
+      case 'add':
+        this.setState({isNewMeasureOpen: true});
+      break;
+      case 'graph':
+        console.log('graph');
+      break;
+      case 'avg':
+        console.log('avg');
+      break;
+      case 'submit':
+        this.setState({isNewMeasureOpen: false});
+      break;
+      default:
+        console.log('Error');
+      break;
+    }
   }
 
   render () {
     return (
       <div className={styles.container}>
-        <Modal show={this.state.addNewMeasure}>
-          <AddNewMeasure />
+        <Modal show={this.state.isNewMeasureOpen}>
+          <AddNewMeasure handler={this.buttonHandler}/>
         </Modal>
         <div className={styles.measurementList}>
           <table className={styles.tableHead}>

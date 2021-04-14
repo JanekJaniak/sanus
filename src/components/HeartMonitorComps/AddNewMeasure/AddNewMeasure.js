@@ -5,7 +5,7 @@ import styles from './addNMStyles.module.css'
 import Input from '../../UI/Input/Input';
 import Button from '../../HeartMonitorComps/Button/Button';
 
-const addNewMeasure = () => {
+const addNewMeasure = (props) => {
 
   return(
     <div className={styles.container}>
@@ -17,8 +17,9 @@ const addNewMeasure = () => {
       <Input label='Notes' inputtype='textarea'/>
       <div className={styles.buttonContainer}>
         <Button
-          name='Add'
-          type='submit'
+          name='Submit'
+          action='submit'
+          handler={props.handler}
         />
       </div>
     </div>
