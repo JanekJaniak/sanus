@@ -5,7 +5,6 @@ import MeasureDisplay from '../../components/HeartMonitorComps/MeasureDisplay/Me
 import Footer from '../../components/HeartMonitorComps/Footer/Footer'
 import Modal from '../../components/UI/Modal/Modal'
 import AddNewMeasure from '../../components/HeartMonitorComps/AddNewMeasure/AddNewMeasure'
-import Backdrop from '../../components/UI/Backdrop/Backdrop'
 
 import styles from './heartMonitorStyles.module.css'
 
@@ -76,7 +75,6 @@ class HeartMonitor extends Component {
         <Modal show={this.state.isNewMeasureOpen}>
           <AddNewMeasure handler={this.buttonHandler}/>
         </Modal>
-        <Backdrop show={this.state.isNewMeasureOpen}/>
         <div className={styles.measurementList}>
           <table className={styles.tableHead}>
             <tbody>
