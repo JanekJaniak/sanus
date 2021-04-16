@@ -16,7 +16,7 @@ class HeartMonitor extends Component {
       heartData: [
         {
           id: 1,
-          date: '01.04.21',
+          date: '2021-04-01',
           time: '7:00',
           systolic: '130',
           diastolic: '80',
@@ -24,7 +24,7 @@ class HeartMonitor extends Component {
         },
         {
           id: 2,
-          date: '01.04.21',
+          date: '2021-04-01',
           time: '9:00',
           systolic: '111',
           diastolic: '77',
@@ -60,20 +60,29 @@ class HeartMonitor extends Component {
       case 'avg':
         console.log('avg');
       break;
-      case 'submit':
-        this.setState({isNewMeasureOpen: false});
-      break;
       default:
         console.log('Error');
       break;
     }
   }
 
+  submitHandler = (event, data) => {
+    this.setState({isNewMeasureOpen: false});
+
+    this.setState(state => {
+      const heartData = state.heartData.concat(data);
+
+      return {heartData}
+    })
+    console.log(event.target);
+    console.log(data);
+  }
+
   render () {
     return (
       <div className={styles.container}>
         <Modal show={this.state.isNewMeasureOpen}>
-          <AddNewMeasure handler={this.buttonHandler}/>
+          <AddNewMeasure handler={this.submitHandler}/>
         </Modal>
         <div className={styles.measurementList}>
           <table className={styles.tableHead}>

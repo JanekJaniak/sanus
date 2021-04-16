@@ -53,8 +53,10 @@ import Button from '../../HeartMonitorComps/Button/Button';
     const dataType = event.target.getAttribute('statename')
 
     this.setState({[dataType]: event.target.value})
-    console.log(event.target.value);
-    console.log(dataType);
+  }
+
+  clearState = () => {
+    console.log('clear');
   }
 
   render() {
@@ -96,7 +98,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
           label='HR' 
           inputtype='input' 
           type ='number'
-          statename='heartrate'
+          statename='heartRate'
           value={this.state.heartRate}
           onChange={this.inputHandler}
         />
@@ -111,7 +113,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
           <Button
             name='Submit'
             action='submit'
-            handler={this.props.handler}
+            handler={(event) => this.props.handler(event, this.state)}
           />
         </div>
       </div>
