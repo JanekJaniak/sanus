@@ -20,7 +20,6 @@ const input = (props) => {
     <div className={styles.container}>
       <label className={styles.label}>{props.label}</label>
       {inputElement}
-      
     </div>
   )
 };
