@@ -22,6 +22,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
 
   componentDidMount() {
     this.getStateDate();
+    this.getStateTime();
   }
 
   getStateDate = () => {
@@ -36,6 +37,15 @@ import Button from '../../HeartMonitorComps/Button/Button';
     this.setState({date: stateDate})
   }
 
+  getStateTime = () => {
+    const dateNow = new Date();
+    const timeNow = dateNow.toLocaleTimeString();
+
+    const stateTime = timeNow.split(':').slice(0,2).join(':');
+   
+    this.setState({time: stateTime})
+  }
+
   inputHandler = (event) => {
     console.log(event.target.value);
   }
@@ -47,11 +57,21 @@ import Button from '../../HeartMonitorComps/Button/Button';
           label='Date' 
           inputtype='input' 
           type ='date'
-          value={this.date}
+          value={this.state.date}
           onChange={this.inputHandler}
         />  
-        <Input label='Time' inputtype='input' type ='time'/>
-        <Input label='SYS' inputtype='input' type ='number'/>
+        <Input 
+          label='Time' 
+          inputtype='input' 
+          type ='time'
+          value={this.state.time}
+          onChange={this.inputHandler}
+        />
+        <Input 
+          label='SYS' 
+          inputtype='input' 
+          type ='number'
+        />
         <Input label='DIA' inputtype='input' type ='number'/>
         <Input label='HR' inputtype='input' type ='number'/>
         <Input label='Notes' inputtype='textarea'/>
