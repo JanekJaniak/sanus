@@ -39,9 +39,12 @@ import Button from '../../HeartMonitorComps/Button/Button';
 
   getStateTime = () => {
     const dateNow = new Date();
-    const timeNow = dateNow.toLocaleTimeString();
+    const hour = '' + dateNow.getHours();
+    const hourNow = hour.length < 2 ? '0' + hour : hour;
+    const minutes = '' + dateNow.getMinutes();
+    const minutesNow = minutes.length < 2 ? '0' + minutes : minutes;
 
-    const stateTime = timeNow.split(':').slice(0,2).join(':');
+    const stateTime = [hourNow, minutesNow].join(':');
    
     this.setState({time: stateTime})
   }
@@ -100,7 +103,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
           inputtype='textarea'
           statename='notes'
           value={this.state.notes}
-          onChange={this.inputHandler}
+          onChange={this.inputHandler }
           />
         <div className={styles.buttonContainer}>
           <Button
