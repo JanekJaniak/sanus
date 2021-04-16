@@ -50,9 +50,11 @@ import Button from '../../HeartMonitorComps/Button/Button';
   }
 
   inputHandler = (event) => {
-    const dateType = event.target.getAttribute('statename')
+    const dataType = event.target.getAttribute('statename')
+
+    this.setState({[dataType]: event.target.value})
     console.log(event.target.value);
-    console.log(dateType);
+    console.log(dataType);
   }
 
   render() {
