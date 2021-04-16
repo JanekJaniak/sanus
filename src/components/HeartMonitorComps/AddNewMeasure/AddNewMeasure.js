@@ -47,7 +47,9 @@ import Button from '../../HeartMonitorComps/Button/Button';
   }
 
   inputHandler = (event) => {
+    const dateType = event.target.getAttribute('statename')
     console.log(event.target.value);
+    console.log(dateType);
   }
 
   render() {
@@ -57,6 +59,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
           label='Date' 
           inputtype='input' 
           type ='date'
+          statename='date'
           value={this.state.date}
           onChange={this.inputHandler}
         />  
@@ -64,6 +67,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
           label='Time' 
           inputtype='input' 
           type ='time'
+          statename='time'
           value={this.state.time}
           onChange={this.inputHandler}
         />
@@ -71,10 +75,33 @@ import Button from '../../HeartMonitorComps/Button/Button';
           label='SYS' 
           inputtype='input' 
           type ='number'
+          statename='systolic'
+          value={this.state.systolic}
+          onChange={this.inputHandler}
         />
-        <Input label='DIA' inputtype='input' type ='number'/>
-        <Input label='HR' inputtype='input' type ='number'/>
-        <Input label='Notes' inputtype='textarea'/>
+        <Input 
+          label='DIA' 
+          inputtype='input'  
+          type ='number'
+          statename='diastolic'
+          value={this.state.diastolic}
+          onChange={this.inputHandler}
+        />
+        <Input 
+          label='HR' 
+          inputtype='input' 
+          type ='number'
+          statename='heartrate'
+          value={this.state.heartRate}
+          onChange={this.inputHandler}
+        />
+        <Input 
+          label='Notes' 
+          inputtype='textarea'
+          statename='notes'
+          value={this.state.notes}
+          onChange={this.inputHandler}
+          />
         <div className={styles.buttonContainer}>
           <Button
             name='Submit'
