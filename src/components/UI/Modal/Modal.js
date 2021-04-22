@@ -11,14 +11,12 @@ class Modal extends Component {
   }
 
   render() {
+    if(!this.props.show) {
+      return null;
+    }
     return(
       <Aux>
-        <div 
-          className={styles.modal}
-          style={{
-            transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)'
-          }}
-        >
+        <div className={styles.modal}>
           {this.props.children}
         </div>
         <Backdrop show={this.props.show}/>
@@ -26,6 +24,5 @@ class Modal extends Component {
     )
   }
 };
-
 
 export default Modal

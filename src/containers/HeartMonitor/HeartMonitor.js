@@ -31,7 +31,7 @@ class HeartMonitor extends Component {
           heartRate: '65',
         },
       ],
-      isNewMeasureOpen: false,
+      showModal: false,
     }
   }
 
@@ -52,7 +52,7 @@ class HeartMonitor extends Component {
     
     switch(buttonType) {
       case 'add':
-        this.setState({isNewMeasureOpen: true});
+        this.setState({showModal: true});
       break;
       case 'graph':
         console.log('graph');
@@ -67,7 +67,7 @@ class HeartMonitor extends Component {
   }
 
   submitHandler = (event, data) => {
-    this.setState({isNewMeasureOpen: false});
+    this.setState({showModal: false});
 
     this.setState(state => {
       const heartData = state.heartData.concat(data);
@@ -81,7 +81,7 @@ class HeartMonitor extends Component {
   render () {
     return (
       <div className={styles.container}>
-        <Modal show={this.state.isNewMeasureOpen}>
+        <Modal show={this.state.showModal}>
           <AddNewMeasure handler={this.submitHandler}/>
         </Modal>
         <div className={styles.measurementList}>
