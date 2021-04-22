@@ -23,6 +23,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
   componentDidMount() {
     this.getStateDate();
     this.getStateTime();
+    this.setId();
   }
 
   getStateDate = () => {
@@ -47,6 +48,12 @@ import Button from '../../HeartMonitorComps/Button/Button';
     const stateTime = [hourNow, minutesNow].join(':');
    
     this.setState({time: stateTime})
+  }
+
+  setId = () => {
+    const newId = '_' + Math.random().toString(36).substr(2, 9);
+    
+    this.setState({id: newId})
   }
 
   inputHandler = (event) => {
