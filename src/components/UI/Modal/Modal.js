@@ -6,10 +6,6 @@ import Backdrop from '../Backdrop/Backdrop'
 import styles from './modalStyles.module.css';
 
 class Modal extends Component {
-  constructor() {
-    super()
-  }
-
   render() {
     if(!this.props.show) {
       return null;
