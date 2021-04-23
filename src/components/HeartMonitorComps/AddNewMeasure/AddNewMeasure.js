@@ -10,31 +10,60 @@ import Button from '../../HeartMonitorComps/Button/Button';
     super()
 
     this.state = {
-      id: '',
-      date: '',
-      time: '',
+      date: {
+        elementType: 'input',
+        elementConf: {
+          type: 'date',
+        },
+        value: ''
+      },
+      time: {
+        elementType: 'input',
+        elementConf: {
+          type: 'time',
+        },
+        value: ''
+      },
       systolic: {
-        value: '',
-        valid: ''
+        elementType: 'input',
+        elementConf: {
+          type: 'number',
+          placeholder: 'Systolic'
+        },
+        value: ''
       },
-      diastolic: {
-        value: '',
-        valid: ''
+      diastolic:{
+        elementType: 'input',
+        elementConf: {
+          type: 'number',
+          placeholder: 'Diastolic'
+        },
+        value: ''
       },
-      heartRate: {
-        value: '',
-        valid: ''
+      heartRate:{
+        elementType: 'input',
+        elementConf: {
+          type: 'number',
+          placeholder: 'Heart rate'
+        },
+        value: ''
       },
       notes: {
+        elementType: 'textarea',
+        elementConf: {
+          type: 'textarea',
+          rows: '3',
+          placeholder: 'Your notes'
+        },
         value: ''
-      }
+      },
     }
   }
 
   componentDidMount() {
-    this.getStateDate();
-    this.getStateTime();
-    this.setId();
+    // this.getStateDate();
+    // this.getStateTime();
+    // this.setId();
   }
 
   getStateDate = () => {
@@ -57,8 +86,11 @@ import Button from '../../HeartMonitorComps/Button/Button';
     const minutesNow = minutes.length < 2 ? '0' + minutes : minutes;
 
     const stateTime = [hourNow, minutesNow].join(':');
+
+    let time = this.state.time.value
+    time = stateTime
    
-    this.setState({time: stateTime})
+    this.setState({time})
   }
 
   setId = () => {
@@ -78,55 +110,23 @@ import Button from '../../HeartMonitorComps/Button/Button';
   }
 
   render() {
+    const formElements = [];
+    for ( let key in this.state) {
+        formElements.push({
+          id: key,
+          config: this.state[key]
+        })
+    }
+
     return(
-      <div className={styles.container}>
-        <Input 
-          label='Date' 
-          inputtype='input' 
-          type ='date'
-          statename='date'
-          value={this.state.date}
-          onChange={this.inputHandler}
-        />  
-        <Input 
-          label='Time' 
-          inputtype='input' 
-          type ='time'
-          statename='time'
-          value={this.state.time}
-          onChange={this.inputHandler}
-        />
-        <Input 
-          label='SYS' 
-          inputtype='input' 
-          type ='number'
-          statename='systolic'
-          value={this.state.systolic}
-          onChange={this.inputHandler}
-        />
-        <Input 
-          label='DIA' 
-          inputtype='input'  
-          type ='number'
-          statename='diastolic'
-          value={this.state.diastolic}
-          onChange={this.inputHandler}
-        />
-        <Input 
-          label='HR' 
-          inputtype='input' 
-          type ='number'
-          statename='heartRate'
-          value={this.state.heartRate}
-          onChange={this.inputHandler}
-        />
-        <Input 
-          label='Notes' 
-          inputtype='textarea'
-          statename='notes'
-          value={this.state.notes}
-          onChange={this.inputHandler }
-          />
+      <form className={styles.container}>
+        {formElements.map(formElement => (
+          <Input
+            elementType={formElement.config.elementType} 
+            elementConf={formElement.config.elementConf} 
+            value={formElement.config.value}
+          />  
+        ))}
         <div className={styles.buttonContainer}>
           <Button
             name='Submit'
@@ -134,7 +134,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
             handler={this.validateForm}
           />
         </div>
-      </div>
+      </form>
     )
   }
 };
