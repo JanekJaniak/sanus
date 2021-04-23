@@ -11,6 +11,7 @@ const input = (props) => {
         className={styles.input} 
         {...props.elementConf}
         value={props.value}
+        onChange={props.change}
       />;
       break;
     case 'textarea':
@@ -18,6 +19,7 @@ const input = (props) => {
         className={styles.textArea}
         {...props.elementConf}
         value={props.value}
+        onChange={props.change}
       />;
       break;
     default:
@@ -25,6 +27,7 @@ const input = (props) => {
         className={styles.input}
         {...props.elementConf}
         value={props.value}
+        onChange={props.change}
       />;
   }
  

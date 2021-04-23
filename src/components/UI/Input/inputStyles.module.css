@@ -6,8 +6,8 @@
 }
 .input {
   box-sizing: border-box;
-  width: 170px;
-  font-size: 1rem;
+  width: 180px;
+  font-size: 0.8rem;
   padding: 4px;
   border-style: solid;
   border-width: 0 2px 2px 0;
@@ -22,8 +22,8 @@
 }
 .textArea {
   box-sizing: border-box;
-  width: 170px;
-  font-size: 1rem;
+  width: 180px;
+  font-size: 0.8rem;
   padding: 4px;
   border-style: solid;
   border-width: 0 2px 2px 0;

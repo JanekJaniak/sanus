@@ -10,60 +10,61 @@ import Button from '../../HeartMonitorComps/Button/Button';
     super()
 
     this.state = {
-      date: {
-        elementType: 'input',
-        elementConf: {
-          type: 'date',
+      form: {
+        date: {
+          elementType: 'input',
+          elementConf: {
+            type: 'date',
+          },
+          value: ''
         },
-        value: ''
-      },
-      time: {
-        elementType: 'input',
-        elementConf: {
-          type: 'time',
+        time: {
+          elementType: 'input',
+          elementConf: {
+            type: 'time',
+          },
+          value: ''
         },
-        value: ''
-      },
-      systolic: {
-        elementType: 'input',
-        elementConf: {
-          type: 'number',
-          placeholder: 'Systolic'
+        systolic: {
+          elementType: 'input',
+          elementConf: {
+            type: 'number',
+            placeholder: 'Systolic'
+          },
+          value: ''
         },
-        value: ''
-      },
-      diastolic:{
-        elementType: 'input',
-        elementConf: {
-          type: 'number',
-          placeholder: 'Diastolic'
+        diastolic:{
+          elementType: 'input',
+          elementConf: {
+            type: 'number',
+            placeholder: 'Diastolic'
+          },
+          value: ''
         },
-        value: ''
-      },
-      heartRate:{
-        elementType: 'input',
-        elementConf: {
-          type: 'number',
-          placeholder: 'Heart rate'
+        heartRate:{
+          elementType: 'input',
+          elementConf: {
+            type: 'number',
+            placeholder: 'Heart rate'
+          },
+          value: ''
         },
-        value: ''
-      },
-      notes: {
-        elementType: 'textarea',
-        elementConf: {
-          type: 'textarea',
-          rows: '3',
-          placeholder: 'Your notes'
-        },
-        value: ''
-      },
+        notes: {
+          elementType: 'textarea',
+          elementConf: {
+            type: 'textarea',
+            rows: '3',
+            placeholder: 'Your notes'
+          },
+          value: ''
+        }
+      }
     }
   }
 
   componentDidMount() {
-    // this.getStateDate();
-    // this.getStateTime();
-    // this.setId();
+    this.getStateDate();
+    this.getStateTime();
   }
 
   getStateDate = () => {
@@ -72,10 +73,9 @@ import Button from '../../HeartMonitorComps/Button/Button';
     const dayNow = day.length < 2 ? '0' + day : day;
     const month = '' + (dateNow.getMonth() + 1);
     const monthNow = month.length < 2 ? '0' + month : month;
-    
     const stateDate = [ dateNow.getFullYear(), monthNow, dayNow].join('-');
-
-    this.setState({date: stateDate})
+    
+    this.initialInputHandler(stateDate, 'date')
   }
 
   getStateTime = () => {
@@ -84,54 +84,69 @@ import Button from '../../HeartMonitorComps/Button/Button';
     const hourNow = hour.length < 2 ? '0' + hour : hour;
     const minutes = '' + dateNow.getMinutes();
     const minutesNow = minutes.length < 2 ? '0' + minutes : minutes;
-
     const stateTime = [hourNow, minutesNow].join(':');
 
-    let time = this.state.time.value
-    time = stateTime
-   
-    this.setState({time})
+    this.initialInputHandler(stateTime, 'time')
   }
 
-  setId = () => {
-    const newId = '_' + Math.random().toString(36).substr(2, 9);
-    
-    this.setState({id: newId})
+  inputHandler = (event, inputIdentifier) => {
+    const updatedForm = {
+      ...this.state.form
+    };
+    const updatedFormElement =  {
+      ...updatedForm[inputIdentifier]
+    };
+
+    updatedFormElement.value = event.target.value;
+    updatedForm[inputIdentifier] = updatedFormElement;
+
+    this.setState({form: updatedForm});
   }
 
-  inputHandler = (event) => {
-    const dataType = event.target.getAttribute('statename')
+  initialInputHandler = (value, inputIdentifier) => {
+    const updatedForm = {
+      ...this.state.form
+    };
+    const updatedFormElement =  {
+      ...updatedForm[inputIdentifier]
+    };
 
-    this.setState({[{dataType}.value]: event.target.value})
+    updatedFormElement.value = value;
+    updatedForm[inputIdentifier] = updatedFormElement;
+
+    this.setState({form: updatedForm});
   }
 
-  validateForm = (event) => {
-    this.props.handler(event, this.state)
+  submitForm = () => {
+    console.log('Submit');
   }
+
 
   render() {
     const formElements = [];
-    for ( let key in this.state) {
-        formElements.push({
-          id: key,
-          config: this.state[key]
-        })
+    for ( let key in this.state.form) {
+      formElements.push({
+        id: key,
+        config: this.state.form[key]
+      })
     }
 
     return(
       <form className={styles.container}>
         {formElements.map(formElement => (
           <Input
+            key={formElement.id}
             elementType={formElement.config.elementType} 
             elementConf={formElement.config.elementConf} 
             value={formElement.config.value}
+            change={(event) => this.inputHandler(event, formElement.id)}
           />  
         ))}
         <div className={styles.buttonContainer}>
           <Button
             name='Submit'
             action='submit'
-            handler={this.validateForm}
+            handler={this.submitForm}
           />
         </div>
       </form>
