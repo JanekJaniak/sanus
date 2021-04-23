@@ -13,10 +13,21 @@ import Button from '../../HeartMonitorComps/Button/Button';
       id: '',
       date: '',
       time: '',
-      systolic: '',
-      diastolic: '',
-      heartRate: '',
-      notes: ''
+      systolic: {
+        value: '',
+        valid: ''
+      },
+      diastolic: {
+        value: '',
+        valid: ''
+      },
+      heartRate: {
+        value: '',
+        valid: ''
+      },
+      notes: {
+        value: ''
+      }
     }
   }
 
@@ -59,11 +70,11 @@ import Button from '../../HeartMonitorComps/Button/Button';
   inputHandler = (event) => {
     const dataType = event.target.getAttribute('statename')
 
-    this.setState({[dataType]: event.target.value})
+    this.setState({[{dataType}.value]: event.target.value})
   }
 
-  clearState = () => {
-    console.log('clear');
+  validateForm = (event) => {
+    this.props.handler(event, this.state)
   }
 
   render() {
@@ -120,7 +131,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
           <Button
             name='Submit'
             action='submit'
-            handler={(event) => this.props.handler(event, this.state)}
+            handler={this.validateForm}
           />
         </div>
       </div>

@@ -69,6 +69,9 @@ class HeartMonitor extends Component {
   submitHandler = (event, data) => {
     this.setState({showModal: false});
 
+    console.log(data);
+    
+
     this.setState(state => {
       const heartData = state.heartData.concat(data);
 
