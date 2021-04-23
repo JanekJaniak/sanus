@@ -63,8 +63,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
   }
 
   componentDidMount() {
-    this.getStateDate();
-    this.getStateTime();
+    // this.getStateDate();
+    // this.getStateTime();
   }
 
   getStateDate = () => {
@@ -75,6 +75,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
     const monthNow = month.length < 2 ? '0' + month : month;
     const stateDate = [ dateNow.getFullYear(), monthNow, dayNow].join('-');
     
+
     this.initialInputHandler(stateDate, 'date')
   }
 
