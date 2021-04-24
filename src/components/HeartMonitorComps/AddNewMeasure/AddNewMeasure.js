@@ -16,14 +16,22 @@ import Button from '../../HeartMonitorComps/Button/Button';
           elementConf: {
             type: 'date',
           },
-          value: ''
+          value: '',
+          validation: {
+            required: true,
+          },
+          valid: false
         },
         time: {
           elementType: 'input',
           elementConf: {
             type: 'time',
           },
-          value: ''
+          value: '',
+          validation: {
+            required: true,
+          },
+          valid: false
         },
         systolic: {
           elementType: 'input',
@@ -31,23 +39,47 @@ import Button from '../../HeartMonitorComps/Button/Button';
             type: 'number',
             placeholder: 'Systolic'
           },
-          value: ''
+          value: '',
+          validation: {
+            required: true,
+            minLength: 2,
+            maxLenght: 3,
+            minValue: 50,
+            maxValue:260
+          },
+          valid: false
         },
-        diastolic:{
+        diastolic: {
           elementType: 'input',
           elementConf: {
             type: 'number',
             placeholder: 'Diastolic'
           },
-          value: ''
+          value: '',
+          validation: {
+            required: true,
+            minLength: 2,
+            maxLenght: 3,
+            minValue: 30,
+            maxValue:200
+          },
+          valid: false
         },
-        heartRate:{
+        heartRate: {
           elementType: 'input',
           elementConf: {
             type: 'number',
             placeholder: 'Heart rate'
           },
-          value: ''
+          value: '',
+          validation: {
+            required: true,
+            minLength: 2,
+            maxLenght: 3,
+            minValue: 30,
+            maxValue:260
+          },
+          valid: false
         },
         notes: {
           elementType: 'textarea',
@@ -56,7 +88,11 @@ import Button from '../../HeartMonitorComps/Button/Button';
             rows: '3',
             placeholder: 'Your notes'
           },
-          value: ''
+          value: '',
+          validation: {
+            required: false
+          },
+          valid: true
         }
       }
     }
@@ -115,20 +151,10 @@ import Button from '../../HeartMonitorComps/Button/Button';
     };
 
     updatedFormElement.value = event.target.value;
-    updatedForm[inputIdentifier] = updatedFormElement;
-
-    this.setState({form: updatedForm});
-  }
-
-  initialInputHandler = (value, inputIdentifier) => {
-    const updatedForm = {
-      ...this.state.form
-    };
-    const updatedFormElement =  {
-      ...updatedForm[inputIdentifier]
-    };
-
-    updatedFormElement.value = value;
+    updatedFormElement.valid = this.checkValidity(
+      updatedFormElement.value, updatedFormElement.validation
+    )
+    console.log(updatedFormElement);
     updatedForm[inputIdentifier] = updatedFormElement;
 
     this.setState({form: updatedForm});
@@ -151,10 +177,35 @@ import Button from '../../HeartMonitorComps/Button/Button';
       heartRate: formData.heartRate.value,
       notes: formData.notes.value
     };
-    
+
     this.props.handler(exportData);
   }
 
+  checkValidity = (value, rules) => {
+    let isValid = true;
+
+    if(rules.required) {
+      isValid = value.trim() !== '' && isValid
+    }
+
+    if(rules.minLength) {
+      isValid = value.length >= rules.minLength && isValid
+    }
+
+    if(rules.maxLenght) {
+      isValid = value.length <= rules.maxLenght && isValid
+    }
+
+    if(rules.minValue) {
+      isValid = value >= rules.minValue && isValid
+    }
+
+    if(rules.maxValue) {
+      isValid = value <= rules.maxValue && isValid
+    }
+
+    return isValid;
+  }
 
   render() {
     const formElements = [];
