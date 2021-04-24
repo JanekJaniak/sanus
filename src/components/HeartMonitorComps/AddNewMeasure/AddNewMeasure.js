@@ -63,8 +63,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
   }
 
   componentDidMount() {
-    // this.getStateDate();
-    // this.getStateTime();
+    this.getStateDate();
+    this.getStateTime();
   }
 
   getStateDate = () => {
@@ -76,7 +76,15 @@ import Button from '../../HeartMonitorComps/Button/Button';
     const stateDate = [ dateNow.getFullYear(), monthNow, dayNow].join('-');
     
 
-    this.initialInputHandler(stateDate, 'date')
+    this.setState(prevState => ({
+      form: {
+        ...prevState.form,
+        date: {
+          ...prevState.form.date,
+          value: stateDate
+        }
+      }
+    }))
   }
 
   getStateTime = () => {
@@ -87,7 +95,15 @@ import Button from '../../HeartMonitorComps/Button/Button';
     const minutesNow = minutes.length < 2 ? '0' + minutes : minutes;
     const stateTime = [hourNow, minutesNow].join(':');
 
-    this.initialInputHandler(stateTime, 'time')
+    this.setState(prevState => ({
+      form: {
+        ...prevState.form,
+        time: {
+          ...prevState.form.data,
+          value: stateTime
+        }
+      }
+    }))
   }
 
   inputHandler = (event, inputIdentifier) => {
