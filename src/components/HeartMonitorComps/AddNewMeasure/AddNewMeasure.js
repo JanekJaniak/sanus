@@ -134,8 +134,25 @@ import Button from '../../HeartMonitorComps/Button/Button';
     this.setState({form: updatedForm});
   }
 
-  submitForm = () => {
-    console.log('Submit');
+  submitHandler = (event) => {
+    event.preventDefault();
+    
+    const formData = {};
+    for(let formElementIdentifier in this.state.form) {
+      formData[formElementIdentifier] = this.state.form[formElementIdentifier]
+    };
+
+    const exportData = {
+      id:  '_' + Math.random().toString(36).substr(2, 9),
+      date: formData.date.value,
+      time: formData.time.value,
+      systolic: formData.systolic.value,
+      diastolic: formData.diastolic.value,
+      heartRate: formData.heartRate.value,
+      notes: formData.notes.value
+    };
+    
+    this.props.handler(exportData);
   }
 
 
@@ -149,7 +166,10 @@ import Button from '../../HeartMonitorComps/Button/Button';
     }
 
     return(
-      <form className={styles.container}>
+      <form 
+        className={styles.container}
+        onSubmit={this.submitHandler}
+      >
         {formElements.map(formElement => (
           <Input
             key={formElement.id}
@@ -163,7 +183,6 @@ import Button from '../../HeartMonitorComps/Button/Button';
           <Button
             name='Submit'
             action='submit'
-            handler={this.submitForm}
           />
         </div>
       </form>
