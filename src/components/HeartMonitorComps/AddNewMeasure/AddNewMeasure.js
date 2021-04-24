@@ -20,7 +20,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
           validation: {
             required: true,
           },
-          valid: false
+          valid: false,
+          isTouched: false
         },
         time: {
           elementType: 'input',
@@ -31,7 +32,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
           validation: {
             required: true,
           },
-          valid: false
+          valid: false,
+          isTouched: false
         },
         systolic: {
           elementType: 'input',
@@ -47,7 +49,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
             minValue: 50,
             maxValue:260
           },
-          valid: false
+          valid: false,
+          isTouched: false
         },
         diastolic: {
           elementType: 'input',
@@ -63,7 +66,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
             minValue: 30,
             maxValue:200
           },
-          valid: false
+          valid: false,
+          isTouched: false
         },
         heartRate: {
           elementType: 'input',
@@ -79,7 +83,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
             minValue: 30,
             maxValue:260
           },
-          valid: false
+          valid: false,
+          isTouched: false
         },
         notes: {
           elementType: 'textarea',
@@ -117,7 +122,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
         ...prevState.form,
         date: {
           ...prevState.form.date,
-          value: stateDate
+          value: stateDate,
+          valid: true
         }
       }
     }))
@@ -136,7 +142,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
         ...prevState.form,
         time: {
           ...prevState.form.data,
-          value: stateTime
+          value: stateTime,
+          valid: true
         }
       }
     }))
@@ -154,7 +161,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
     updatedFormElement.valid = this.checkValidity(
       updatedFormElement.value, updatedFormElement.validation
     )
-    console.log(updatedFormElement);
+    updatedFormElement.isTouched = true
     updatedForm[inputIdentifier] = updatedFormElement;
 
     this.setState({form: updatedForm});
@@ -227,6 +234,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
             elementType={formElement.config.elementType} 
             elementConf={formElement.config.elementConf} 
             value={formElement.config.value}
+            invalid={formElement.config.valid}
+            isTouched={formElement.config.isTouched}
             change={(event) => this.inputHandler(event, formElement.id)}
           />  
         ))}
