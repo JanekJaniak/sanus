@@ -174,6 +174,32 @@ import Button from '../../HeartMonitorComps/Button/Button';
     for(let formElementIdentifier in this.state.form) {
       formData[formElementIdentifier] = this.state.form[formElementIdentifier]
     };
+    
+    const validFormElements = [];
+    const formElements =[];
+    let isFormValid = false
+
+    for(let formElementIdentifier in this.state.form) {
+      this.setState(prevState => ({
+        form: {
+          ...prevState.form,
+          [formElementIdentifier] : {
+            ...prevState.form[formElementIdentifier],
+            isTouched:  true
+          }
+        }
+      }))
+      
+      if(this.state.form[formElementIdentifier].valid === true ) {
+        validFormElements.push(1)
+      } 
+      formElements.push(1)
+    }
+
+    if(formElements.length === validFormElements.length) {
+      isFormValid = true;
+    }
+      
 
     const exportData = {
       id:  '_' + Math.random().toString(36).substr(2, 9),
@@ -185,7 +211,9 @@ import Button from '../../HeartMonitorComps/Button/Button';
       notes: formData.notes.value
     };
 
-    this.props.handler(exportData);
+    if(isFormValid) {
+      this.props.handler(exportData);
+    }
   }
 
   checkValidity = (value, rules) => {
