@@ -7,7 +7,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
 
  class AddNewMeasure extends Component  {
   constructor() {
-    super()
+    super();
 
     this.state = {
       form: {
@@ -47,7 +47,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
             minLength: 2,
             maxLenght: 3,
             minValue: 50,
-            maxValue:260
+            maxValue: 260
           },
           valid: false,
           isTouched: false
@@ -64,7 +64,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
             minLength: 2,
             maxLenght: 3,
             minValue: 30,
-            maxValue:200
+            maxValue: 200
           },
           valid: false,
           isTouched: false
@@ -81,7 +81,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
             minLength: 2,
             maxLenght: 3,
             minValue: 30,
-            maxValue:260
+            maxValue: 260
           },
           valid: false,
           isTouched: false
@@ -116,7 +116,6 @@ import Button from '../../HeartMonitorComps/Button/Button';
     const monthNow = month.length < 2 ? '0' + month : month;
     const stateDate = [ dateNow.getFullYear(), monthNow, dayNow].join('-');
     
-
     this.setState(prevState => ({
       form: {
         ...prevState.form,
@@ -177,7 +176,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
     
     const validFormElements = [];
     const formElements =[];
-    let isFormValid = false
+    let isFormValid = false;
 
     for(let formElementIdentifier in this.state.form) {
       this.setState(prevState => ({
@@ -194,11 +193,11 @@ import Button from '../../HeartMonitorComps/Button/Button';
         validFormElements.push(1)
       } 
       formElements.push(1)
-    }
+    };
 
     if(formElements.length === validFormElements.length) {
       isFormValid = true;
-    }
+    };
       
 
     const exportData = {
@@ -213,7 +212,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
 
     if(isFormValid) {
       this.props.handler(exportData);
-    }
+    };
   }
 
   checkValidity = (value, rules) => {
@@ -249,28 +248,28 @@ import Button from '../../HeartMonitorComps/Button/Button';
         id: key,
         config: this.state.form[key]
       })
-    }
+    };
 
     return(
       <form 
-        className={styles.container}
-        onSubmit={this.submitHandler}
+        className = {styles.container}
+        onSubmit = {this.submitHandler}
       >
         {formElements.map(formElement => (
           <Input
-            key={formElement.id}
-            elementType={formElement.config.elementType} 
-            elementConf={formElement.config.elementConf} 
-            value={formElement.config.value}
-            invalid={formElement.config.valid}
-            isTouched={formElement.config.isTouched}
-            change={(event) => this.inputHandler(event, formElement.id)}
+            key = {formElement.id}
+            elementType = {formElement.config.elementType} 
+            elementConf = {formElement.config.elementConf} 
+            value = {formElement.config.value}
+            invalid = {formElement.config.valid}
+            isTouched = {formElement.config.isTouched}
+            change = {(event) => this.inputHandler(event, formElement.id)}
           />  
         ))}
-        <div className={styles.buttonContainer}>
+        <div className = {styles.buttonContainer}>
           <Button
-            name='Submit'
-            action='submit'
+            name = 'Submit'
+            action = 'submit'
           />
         </div>
       </form>
@@ -278,4 +277,4 @@ import Button from '../../HeartMonitorComps/Button/Button';
   }
 };
 
-export default AddNewMeasure
+export default AddNewMeasure;
