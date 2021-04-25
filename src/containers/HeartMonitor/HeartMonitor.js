@@ -24,7 +24,7 @@ class HeartMonitor extends Component {
         {
           id: 2,
           date: '2021-04-01',
-          time: '9:00',
+          time: '21:00',
           systolic: '111',
           diastolic: '77',
           heartRate: '65',
@@ -78,7 +78,7 @@ class HeartMonitor extends Component {
           <AddNewMeasure handler={this.submitHandler}/>
         </Modal>
         <div className={styles.mainElement}>
-          <MeasureDisplay props={this.state.heartData}/>
+          <MeasureDisplay heartData={this.state.heartData}/>
         </div>
         <Footer handler={this.buttonHandler} />
       </div>
