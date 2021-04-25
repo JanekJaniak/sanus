@@ -141,7 +141,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
       form: {
         ...prevState.form,
         time: {
-          ...prevState.form.data,
+          ...prevState.form.time,
           value: stateTime,
           valid: true
         }
