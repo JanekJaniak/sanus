@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Footer from '../../components/HeartMonitorComps/Footer/Footer'
 import Modal from '../../components/UI/Modal/Modal'
 import AddNewMeasure from '../../components/HeartMonitorComps/AddNewMeasure/AddNewMeasure'
+import MeasureDisplay from '../../components/HeartMonitorComps/MeasureDisplay/MeasureDisplay'
 
 import styles from './heartMonitorStyles.module.css'
 
@@ -77,7 +78,7 @@ class HeartMonitor extends Component {
           <AddNewMeasure handler={this.submitHandler}/>
         </Modal>
         <div className={styles.mainElement}>
-
+          <MeasureDisplay props={this.state.heartData}/>
         </div>
         <Footer handler={this.buttonHandler} />
       </div>
