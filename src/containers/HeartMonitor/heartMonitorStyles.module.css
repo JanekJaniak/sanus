@@ -6,26 +6,10 @@
   background-image: linear-gradient(rgb(95, 159, 243),rgb(5, 48, 128));
 }
 
-.measurementList {
+.mainElement  {
   height: 85%;
 }
 
 .footer {
   height: 15%;
-}
-
-.tableHead {
-  width: 100%;
-  color: white;
-  background-color: rgb(255,255,255,.3);
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-
-.inner {
-  border: none;
-  width:25%;
-  border-right-color: blue;
-  border-right-style: solid;
-  border-right-width: 4px;
 }
