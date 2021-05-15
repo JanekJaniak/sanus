@@ -11,6 +11,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
 
     this.state = {
       dateCreated: '',
+      dateCreatedEdited: true,
       form: {
         date: {
           elementType: 'input',
@@ -156,6 +157,10 @@ import Button from '../../HeartMonitorComps/Button/Button';
     updatedFormElement.isTouched = true
     updatedForm[inputIdentifier] = updatedFormElement;
 
+    if(inputIdentifier === 'date' || inputIdentifier === 'time') {
+      this.setState({dateCreatedEdited: true})
+    }
+
     this.setState({form: updatedForm});
   }
 
@@ -192,6 +197,17 @@ import Button from '../../HeartMonitorComps/Button/Button';
       isFormValid = true;
     };
       
+    if(this.state.dateCreatedEdited === true) {
+      const date = this.state.form.date.value.replaceAll('-', ',');
+      const hours = this.state.form.time.value.slice(0,2);
+      const minutes = this.state.form.time.value.slice(-2)
+      const dateEdited = new Date(date);
+
+      dateEdited.setHours(hours);
+      dateEdited.setMinutes(minutes);
+
+      this.setState({dateCreated: dateEdited})
+    }
 
     const exportData = {
       id:  '_' + Math.random().toString(36).substr(2, 9),
