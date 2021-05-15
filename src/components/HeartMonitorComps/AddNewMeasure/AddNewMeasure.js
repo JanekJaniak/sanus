@@ -195,6 +195,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
 
     const exportData = {
       id:  '_' + Math.random().toString(36).substr(2, 9),
+      dateCreated: this.state.dateCreated,
       date: formData.date.value,
       time: formData.time.value,
       systolic: formData.systolic.value,
