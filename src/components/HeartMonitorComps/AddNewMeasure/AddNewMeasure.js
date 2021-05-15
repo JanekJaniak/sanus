@@ -206,7 +206,9 @@ import Button from '../../HeartMonitorComps/Button/Button';
       dateEdited.setHours(hours);
       dateEdited.setMinutes(minutes);
 
-      this.setState({dateCreated: dateEdited})
+      const dateMiliseconds = dateEdited.getTime()
+
+      this.setState({dateCreated: dateMiliseconds})
     }
 
     const exportData = {

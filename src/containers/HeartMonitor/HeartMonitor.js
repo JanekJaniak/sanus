@@ -16,7 +16,7 @@ class HeartMonitor extends Component {
       heartData: [
         {
           id: 1,
-          dateCreated:'Sun Apr 04 2021 15:00:00 GMT+0200 (Central European Summer Time)',
+          dateCreated: 1614866400000,
           date: '2021-03-04',
           time: '15:00',
           systolic: '130',
@@ -25,7 +25,7 @@ class HeartMonitor extends Component {
         },
         {
           id: 2,
-          dateCreated:'Sun Apr 04 2021 07:00:00 GMT+0200 (Central European Summer Time)',
+          dateCreated: 1614837600000,
           date: '2021-03-04',
           time: '7:00',
           systolic: '111',
@@ -34,7 +34,7 @@ class HeartMonitor extends Component {
         },
         {
           id: 3,
-          dateCreated:'Thu Apr 15 2021 20:00:00 GMT+0200 (Central European Summer Time)',
+          dateCreated: 1615834800000,
           date: '2021-03-15',
           time: '20:00',
           systolic: '121',
