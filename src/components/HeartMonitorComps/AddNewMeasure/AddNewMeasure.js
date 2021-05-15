@@ -104,17 +104,22 @@ import Button from '../../HeartMonitorComps/Button/Button';
   }
 
   componentDidMount() {
-    this.getStateDate();
-    this.getStateTime();
+    this.setDateTimeCreated();
   }
 
-  getStateDate = () => {
+  setDateTimeCreated = () => {
     const dateNow = new Date();
     const day = '' + dateNow.getDate();
     const dayNow = day.length < 2 ? '0' + day : day;
     const month = '' + (dateNow.getMonth() + 1);
     const monthNow = month.length < 2 ? '0' + month : month;
     const stateDate = [ dateNow.getFullYear(), monthNow, dayNow].join('-');
+    
+    const hour = '' + dateNow.getHours();
+    const hourNow = hour.length < 2 ? '0' + hour : hour;
+    const minutes = '' + dateNow.getMinutes();
+    const minutesNow = minutes.length < 2 ? '0' + minutes : minutes;
+    const stateTime = [hourNow, minutesNow].join(':');
     
     this.setState(prevState => ({
       form: {
@@ -123,22 +128,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
           ...prevState.form.date,
           value: stateDate,
           valid: true
-        }
-      }
-    }))
-  }
-
-  getStateTime = () => {
-    const dateNow = new Date();
-    const hour = '' + dateNow.getHours();
-    const hourNow = hour.length < 2 ? '0' + hour : hour;
-    const minutes = '' + dateNow.getMinutes();
-    const minutesNow = minutes.length < 2 ? '0' + minutes : minutes;
-    const stateTime = [hourNow, minutesNow].join(':');
-
-    this.setState(prevState => ({
-      form: {
-        ...prevState.form,
+        },
         time: {
           ...prevState.form.time,
           value: stateTime,
