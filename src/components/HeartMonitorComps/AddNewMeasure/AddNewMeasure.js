@@ -10,6 +10,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
     super();
 
     this.state = {
+      dateCreated: '',
       form: {
         date: {
           elementType: 'input',
@@ -136,6 +137,8 @@ import Button from '../../HeartMonitorComps/Button/Button';
         }
       }
     }))
+
+    this.setState({dateCreated: dateNow})
   }
 
   inputHandler = (event, inputIdentifier) => {
