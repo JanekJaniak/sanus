@@ -11,7 +11,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
 
     this.state = {
       dateCreated: '',
-      dateCreatedEdited: true,
+      dateCreatedEdited: false,
       form: {
         date: {
           elementType: 'input',
@@ -139,7 +139,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
       }
     }))
 
-    this.setState({dateCreated: dateNow})
+    this.setState({dateCreated: dateNow.getTime()})
   }
 
   inputHandler = (event, inputIdentifier) => {
@@ -206,9 +206,7 @@ import Button from '../../HeartMonitorComps/Button/Button';
       dateEdited.setHours(hours);
       dateEdited.setMinutes(minutes);
 
-      const dateMiliseconds = dateEdited.getTime()
-
-      this.setState({dateCreated: dateMiliseconds})
+      this.setState({dateCreated: dateEdited.getTime()})
     }
 
     const exportData = {
