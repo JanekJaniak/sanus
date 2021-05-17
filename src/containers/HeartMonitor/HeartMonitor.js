@@ -86,12 +86,18 @@ class HeartMonitor extends Component {
       return {heartData}
     })
   }
+  cancelAddNew = () => {
+    this.setState({showModal: false})
+  }  
 
   render () {
     return (
       <div className={styles.container}>
         <Modal show={this.state.showModal}>
-          <AddNewMeasure handler={this.submitHandler}/>
+          <AddNewMeasure 
+            handler={this.submitHandler}
+            cancel={this.cancelAddNew}
+          />
         </Modal>
         <div className={styles.measurementList}>
           <table className={styles.tableHead}>

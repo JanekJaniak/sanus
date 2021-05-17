@@ -281,6 +281,10 @@ import Button from '../../HeartMonitorComps/Button/Button';
             name = 'Submit'
             action = 'submit'
           />
+          <Button
+            name = 'Cancel'
+            handler = {this.props.cancel}
+          /> 
         </div>
       </form>
     )
