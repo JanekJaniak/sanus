@@ -4,18 +4,17 @@ import styles from './mdStyles.module.css'
 
 class MeasureDisplay extends Component {
   componentDidMount() {
-    this.sortedHeartData()
+    this.sortHeartData()
   }
 
-  sortedHeartData = () => {
+  sortHeartData = () => {
     const heartData = [...this.props.heartData];
 
     heartData.sort((a,b) => {
       return a.dateCreated - b.dateCreated;
     })
     
-  
-  }
+   }
  
   render() {
     return(
