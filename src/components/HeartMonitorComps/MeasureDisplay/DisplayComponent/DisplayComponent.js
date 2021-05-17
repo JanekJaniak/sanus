@@ -1,29 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import Aux from '../../../../hoc/Aux'; 
 
 import styles from './dcStyles.module.css'
 
-const measureDisplay = (props) => {
-  const heartData = {...props.heartDataItm}
+class DisplayComponent extends Component {
 
-  return (
-    <Aux>
-      <div className={styles.dateContainer}>
-        <p className={styles.date}>{heartData.date}</p>
-      </div>
-      <table className={styles.table}>
-        <tbody>
-          <tr>
-            <th className={styles.inner}>{heartData.systolic}</th>
-            <th className={styles.inner}>{heartData.diastolic}</th>
-            <th className={styles.inner}>{heartData.heartRate}</th>
-            <th>{heartData.time}</th>
-          </tr>
-        </tbody>
-      </table>
-    </Aux>
-  )
-};
+  render() {
+    return (
+      <Aux>
+        <div className={styles.dateContainer}>
+          <p className={styles.date}>{this.props.heartDataItem.date}</p>
+        </div>
+        <table className={styles.table}>
+          <tbody>
+            <tr>
+              <th className={styles.inner}>{this.props.heartDataItem.systolic}</th>
+              <th className={styles.inner}>{this.props.heartDataItem.diastolic}</th>
+              <th className={styles.inner}>{this.props.heartDataItem.heartRate}</th>
+              <th>{this.props.heartDataItem.time}</th>
+            </tr>
+          </tbody>
+        </table>
+      </Aux>
+    )
+  }  
+}
 
-export default measureDisplay;
+export default DisplayComponent;

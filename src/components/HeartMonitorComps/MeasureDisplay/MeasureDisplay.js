@@ -15,14 +15,15 @@ class MeasureDisplay extends Component {
     heartData.sort((a,b) => {
       return a.dateCreated - b.dateCreated;
     })
+
     return(
-    <div>
-      {heartData.map(heartDataItem => (
-        <DisplayComponent key={heartDataItem.id} heartDataItem={heartDataItem}></DisplayComponent>
-      ))}
-    </div>  
+      <div>
+        {heartData.map(heartDataItem => (
+          <DisplayComponent key={heartDataItem.id} heartDataItem={heartDataItem}></DisplayComponent>
+        ))}
+      </div>  
     )
-   }
+  }
  
   render() {
     return(
