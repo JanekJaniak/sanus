@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Aux from '../../../hoc/Aux'; 
+import Aux from '../../../../hoc/Aux'; 
 
-import styles from './displayComponentStyles.module.css'
+import styles from './dcStyles.module.css'
 
 const measureDisplay = (props) => {
   const heartData = {...props.heartDataItm}
