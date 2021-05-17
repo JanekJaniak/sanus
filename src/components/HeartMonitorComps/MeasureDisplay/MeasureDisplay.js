@@ -9,9 +9,12 @@ class MeasureDisplay extends Component {
 
   sortedHeartData = () => {
     const heartData = [...this.props.heartData];
-    const sortedHeartData = [];
+
+    heartData.sort((a,b) => {
+      return a.dateCreated - b.dateCreated;
+    })
     
-    console.log(heartData);
+  
   }
  
   render() {

@@ -40,6 +40,15 @@ class HeartMonitor extends Component {
           diastolic: '67',
           heartRate: '55',
         },
+        {
+          id: 4,
+          dateCreated: 1613412000000,
+          date: '2021-02-15',
+          time: '19:00',
+          systolic: '100',
+          diastolic: '55',
+          heartRate: '67',
+        },
       ],
       showModal: false,
     }
