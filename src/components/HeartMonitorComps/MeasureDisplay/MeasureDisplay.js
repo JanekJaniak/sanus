@@ -27,19 +27,21 @@ class MeasureDisplay extends Component {
  
   render() {
     return(
-      <div className={styles.measurementList}>
-      <table className={styles.tableHead}>
-        <tbody>
-          <tr>
-            <th className={styles.inner}>SYS</th>
-            <th className={styles.inner}>DIA</th>
-            <th className={styles.inner}>HR</th>
-            <th>TIME</th>
-          </tr>
-        </tbody>
-      </table>
-      <div>{this.sortHeartData()}</div>
-    </div>
+      <div className={styles.listHead}>
+        <table className={styles.tableHead}>
+          <tbody>
+            <tr>
+              <th className={styles.inner}>SYS</th>
+              <th className={styles.inner}>DIA</th>
+              <th className={styles.inner}>HR</th>
+              <th>TIME</th>
+            </tr>
+          </tbody>
+        </table>
+        <div className={styles.list}>
+          {this.sortHeartData()}
+        </div>
+      </div>
     )
   }
 }
