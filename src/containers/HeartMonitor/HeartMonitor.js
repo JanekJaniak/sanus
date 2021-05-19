@@ -7,51 +7,22 @@ import MeasureDisplay from '../../components/HeartMonitorComps/MeasureDisplay/Me
 
 import styles from './heartMonitorStyles.module.css'
 
+import mockHeartData from '../../mocks/heartDataMock.json'
+
 class HeartMonitor extends Component {
   constructor() {
     super()
 
     this.state = {
-      heartData: [
-        {
-          id: 1,
-          dateCreated: 1614866400000,
-          date: '2021-03-04',
-          time: '15:00',
-          systolic: '130',
-          diastolic: '80',
-          heartRate: '70',
-        },
-        {
-          id: 2,
-          dateCreated: 1614837600000,
-          date: '2021-03-04',
-          time: '7:00',
-          systolic: '111',
-          diastolic: '77',
-          heartRate: '65',
-        },
-        {
-          id: 3,
-          dateCreated: 1615834800000,
-          date: '2021-03-15',
-          time: '20:00',
-          systolic: '121',
-          diastolic: '67',
-          heartRate: '55',
-        },
-        {
-          id: 4,
-          dateCreated: 1613412000000,
-          date: '2021-02-15',
-          time: '19:00',
-          systolic: '100',
-          diastolic: '55',
-          heartRate: '67',
-        },
-      ],
+      heartData: [],
       showModal: false,
     }
+  }
+
+  componentDidMount() {
+    const data = [...mockHeartData]
+    this.setState({heartData:data})
+    console.log();
   }
 
   buttonHandler = (event) => {

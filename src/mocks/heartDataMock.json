@@ -1,0 +1,128 @@
+[ 
+  {
+    "id": 1,
+    "dateCreated": 1614866400000,
+    "date": "2021-03-04",
+    "time": "15:00",
+    "systolic": "130",
+    "diastolic": "80",
+    "heartRate": "70"
+  },
+  {
+    "id": 2,
+    "dateCreated": 1614837600000,
+    "date": "2021-03-04",
+    "time": "7:00",
+    "systolic": "111",
+    "diastolic": "77",
+    "heartRate": "65"
+  },
+  {
+    "id": 3,
+    "dateCreated": 1615834800000,
+    "date": "2021-03-15",
+    "time": "20:00",
+    "systolic": "121",
+    "diastolic": "67",
+    "heartRate": "55"
+  },
+  {
+    "id": 4,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "100",
+    "diastolic": "55",
+    "heartRate": "67"
+  },
+  {
+    "id": 5,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "111",
+    "diastolic": "66",
+    "heartRate": "67"
+  },
+  {
+    "id": 6,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "112",
+    "diastolic": "77",
+    "heartRate": "67"
+  },
+  {
+    "id": 7,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "122",
+    "diastolic": "87",
+    "heartRate": "67"
+  },
+  {
+    "id": 8,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "132",
+    "diastolic": "90",
+    "heartRate": "67"
+  },
+  {
+    "id": 9,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "142",
+    "diastolic": "99",
+    "heartRate": "67"
+  },
+  {
+    "id": 10,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "154",
+    "diastolic": "107",
+    "heartRate": "67"
+  },
+  {
+    "id": 11,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "165",
+    "diastolic": "115",
+    "heartRate": "67"
+  },
+  {
+    "id": 12,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "176",
+    "diastolic": "125",
+    "heartRate": "67"
+  },
+  {
+    "id": 13,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "188",
+    "diastolic": "135",
+    "heartRate": "67"
+  },
+  {
+    "id": 14,
+    "dateCreated": 1613412000000,
+    "date": "2021-02-15",
+    "time": "19:00",
+    "systolic": "198",
+    "diastolic": "145",
+    "heartRate": "67"
+  }
+]
